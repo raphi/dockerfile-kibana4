@@ -16,5 +16,14 @@ REPLACE=(
  "s|^verify_ssl:.*$|verify_ssl: $VERIFY_SSL|;"
 )
 
+if [ "$ELASTICSEARCH_USERNAME" != "" ] && [ "$ELASTICSEARCH_PASSWORD" != "" ]
+then
+ REPLACE=(
+  ${REPLACE[@]}
+  "s|^# elasticsearch_username:.*|elasticsearch_username: \"$ELASTICSEARCH_USERNAME\"|;"
+  "s|^# elasticsearch_password:.*|elasticsearch_password: \"$ELASTICSEARCH_PASSWORD\"|;"
+ )
+fi
+
 sed -i.bak -e "${REPLACE[*]}" /app/config/kibana.yml
 /app/bin/kibana
