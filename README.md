@@ -1,6 +1,6 @@
 # Dockerfile for Kibana master repo
 
-Based on original: https://github.com/marcbachmann/dockerfile-kibana4
+Based on original from [marcbachmann](https://github.com/marcbachmann/dockerfile-kibana4).   
 
 This Dockerfile fetch the lastest version on kibana master repo. The default Kibana port 5601 is exposed.
 
@@ -17,6 +17,7 @@ ENV VAR         		- default value
 ELASTICSEARCH   		= http://172.17.42.1:9200
 ELASTICSEARCH_USERNAME 	= 
 ELASTICSEARCH_PASSWORD 	=
+JAVA_OPTS				= -Xmx2048m
 KIBANA_INDEX    		= .kibana
 DEFAULT_APP_ID  		= discover
 REQUEST_TIMEOUT 		= 60

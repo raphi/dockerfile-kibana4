@@ -6,6 +6,7 @@ export DEFAULT_APP_ID=${DEFAULT_APP_ID:-discover}
 export REQUEST_TIMEOUT=${REQUEST_TIMEOUT:-60}
 export SHARD_TIMEOUT=${SHARD_TIMEOUT:-30000}
 export VERIFY_SSL=${VERIFY_SSL:-true}
+export JAVA_OPTS=${JAVA_OPTS:--Xmx2048m}
 
 REPLACE=(
  "s|^elasticsearch:.*$|elasticsearch: \"$ELASTICSEARCH\"|;"
