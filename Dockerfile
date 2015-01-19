@@ -10,16 +10,16 @@ RUN curl -sSL https://get.rvm.io | bash -s stable
 RUN curl -sL https://deb.nodesource.com/setup | bash -
 RUN DEBIAN_FRONTEND=noninteractive apt-get install -y nodejs
 
-RUN git clone --depth 1 https://github.com/raphi/kibana.git
-
-WORKDIR kibana
-
 RUN echo 'source /usr/local/rvm/scripts/rvm' >> /etc/bash.bashrc
 RUN /bin/bash -l -c rvm requirements
 ENV PATH /usr/local/rvm/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 RUN /bin/bash -l -c 'rvm install 1.9.3'
 RUN /bin/bash -l -c 'rvm use 1.9.3 --default'
 RUN /bin/bash -l -c 'gem install bundler --no-doc --no-ri'
+
+RUN git clone --depth 1 https://github.com/raphi/kibana.git
+
+WORKDIR kibana
 
 RUN /bin/bash -l -c 'bundle'
 RUN npm install -g grunt-cli bower
