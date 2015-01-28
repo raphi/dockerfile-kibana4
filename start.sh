@@ -26,5 +26,5 @@ then
  )
 fi
 
-sed -i.bak -e "${REPLACE[*]}" /app/kibana*/config/kibana.yml
+sed -i.bak -e "${REPLACE[*]}" /app/kibana*/src/config/kibana.yml
 /app/kibana*/bin/kibana
