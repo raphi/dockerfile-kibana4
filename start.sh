@@ -1,6 +1,6 @@
 #!/bin/bash
 
-export ELASTICSEARCH=${ELASTICSEARCH:-http://172.17.42.1:9200}
+export ELASTICSEARCH_URL=${ELASTICSEARCH_URL:-http://172.17.42.1:9200}
 export KIBANA_INDEX=${KIBANA_INDEX:-.kibana}
 export DEFAULT_APP_ID=${DEFAULT_APP_ID:-discover}
 export REQUEST_TIMEOUT=${REQUEST_TIMEOUT:-60}
@@ -9,7 +9,7 @@ export VERIFY_SSL=${VERIFY_SSL:-true}
 export JAVA_OPTS=${JAVA_OPTS:--Xmx2048m}
 
 REPLACE=(
- "s|^elasticsearch:.*$|elasticsearch: \"$ELASTICSEARCH\"|;"
+ "s|^elasticsearch_url:.*$|elasticsearch_url: \"$ELASTICSEARCH_URL\"|;"
  "s|^kibana_index:.*$|kibana_index: \"$KIBANA_INDEX\"|;"
  "s|^default_app_id:.*$|default_app_id: \"$DEFAULT_APP_ID\"|;"
  "s|^request_timeout:.*$|request_timeout: $REQUEST_TIMEOUT|;"
