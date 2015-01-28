@@ -1,7 +1,7 @@
 FROM java:openjdk-7u71-jre
 MAINTAINER Raphael Daguenet <raphael.daguenet gmail com>
 
-RUN apt-get update -q && DEBIAN_FRONTEND=noninteractive apt-get install -y curl git-core bzip2 && \
+RUN apt-get update -q && DEBIAN_FRONTEND=noninteractive apt-get install -y curl git-core zip bzip2 && \
 	apt-get clean
 
 RUN curl -sL https://deb.nodesource.com/setup | bash -
@@ -16,7 +16,8 @@ RUN npm install && bower --allow-root install
 
 RUN grunt build
 
-RUN mv build/dist/kibana /app
+RUN mkdir /app
+RUN tar -zxf target/kibana-*-linux-x64.tar.gz -C /app
 WORKDIR /
 RUN rm -r /kibana
 
