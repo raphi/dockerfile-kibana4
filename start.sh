@@ -6,7 +6,6 @@ export DEFAULT_APP_ID=${DEFAULT_APP_ID:-discover}
 export REQUEST_TIMEOUT=${REQUEST_TIMEOUT:-60}
 export SHARD_TIMEOUT=${SHARD_TIMEOUT:-30000}
 export VERIFY_SSL=${VERIFY_SSL:-true}
-export JAVA_OPTS=${JAVA_OPTS:--Xmx2048m}
 
 REPLACE=(
  "s|^elasticsearch_url:.*$|elasticsearch_url: \"$ELASTICSEARCH_URL\"|;"
@@ -21,10 +20,10 @@ if [ "$ELASTICSEARCH_USERNAME" != "" ] && [ "$ELASTICSEARCH_PASSWORD" != "" ]
 then
  REPLACE=(
   ${REPLACE[@]}
-  "s|^# elasticsearch_username:.*|elasticsearch_username: \"$ELASTICSEARCH_USERNAME\"|;"
-  "s|^# elasticsearch_password:.*|elasticsearch_password: \"$ELASTICSEARCH_PASSWORD\"|;"
+  "s|^# elasticsearch_username:.*|elasticsearch_username: $ELASTICSEARCH_USERNAME|;"
+  "s|^# elasticsearch_password:.*|elasticsearch_password: $ELASTICSEARCH_PASSWORD|;"
  )
 fi
 
-sed -i.bak -e "${REPLACE[*]}" /app/kibana*/src/config/kibana.yml
+sed -i.bak -e "${REPLACE[*]}" /app/kibana*/config/kibana.yml
 /app/kibana*/bin/kibana
