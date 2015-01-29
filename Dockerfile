@@ -17,8 +17,8 @@ RUN npm install && bower --allow-root install
 RUN grunt build
 
 RUN mkdir /app
-RUN tar -zxf target/kibana-*-linux-x64.tar.gz -C /app
-WORKDIR /
+RUN tar -zxf target/kibana-4.0.0-beta3-linux-x64.tar.gz -C /app
+WORKDIR /app/kibana-4.0.0-beta3-linux-x64/
 RUN rm -r /kibana
 
 ADD start.sh /start.sh
