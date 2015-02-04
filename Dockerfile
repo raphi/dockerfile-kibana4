@@ -7,7 +7,7 @@ RUN apt-get update -q && DEBIAN_FRONTEND=noninteractive apt-get install -y curl 
 RUN curl -sL https://deb.nodesource.com/setup | bash -
 RUN DEBIAN_FRONTEND=noninteractive apt-get install -y nodejs
 
-RUN git clone --depth 1 https://github.com/raphi/kibana.git
+RUN git clone --depth 1 https://github.com/elasticsearch/kibana.git
 
 WORKDIR kibana
 
