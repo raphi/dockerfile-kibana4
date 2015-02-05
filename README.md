@@ -2,7 +2,7 @@
 
 Based on original from [marcbachmann](https://github.com/marcbachmann/dockerfile-kibana4).   
 
-This Dockerfile fetch the lastest version on kibana master repo. The default Kibana port 5601 is exposed.
+This Dockerfile fetch the lastest version of [Kibana master repo](https://github.com/elasticsearch/kibana). The default Kibana port 5601 is exposed.
 
 To run this container you'll need a separate elasticsearch server.
 Kibana automatically proxies all requests from the dashboard to the elasticsearch server. So the ES server doesn't need to be accessible from the internet.
@@ -17,10 +17,11 @@ ENV VAR         		- default value
 ELASTICSEARCH   		= http://172.17.42.1:9200
 ELASTICSEARCH_USERNAME 	= 
 ELASTICSEARCH_PASSWORD 	=
+HOST                    = 0.0.0.0
 KIBANA_INDEX    		= .kibana
 DEFAULT_APP_ID  		= discover
-REQUEST_TIMEOUT 		= 60
-SHARD_TIMEOUT   		= 30000
+REQUEST_TIMEOUT 		= 300000
+SHARD_TIMEOUT   		= 0
 VERIFY_SSL      		= true
 ```
 
