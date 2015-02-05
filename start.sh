@@ -4,8 +4,8 @@ export ELASTICSEARCH_URL=${ELASTICSEARCH_URL:-http://172.17.42.1:9200}
 export ELASTICSEARCH_PRESERVE_HOST=${ELASTICSEARCH_PRESERVE_HOST:-true}
 export KIBANA_INDEX=${KIBANA_INDEX:-.kibana}
 export DEFAULT_APP_ID=${DEFAULT_APP_ID:-discover}
-export REQUEST_TIMEOUT=${REQUEST_TIMEOUT:-60}
-export SHARD_TIMEOUT=${SHARD_TIMEOUT:-30000}
+export REQUEST_TIMEOUT=${REQUEST_TIMEOUT:-300000}
+export SHARD_TIMEOUT=${SHARD_TIMEOUT:-0}
 export VERIFY_SSL=${VERIFY_SSL:-true}
 export HOST=${HOST:-0.0.0.0}
 
@@ -24,8 +24,8 @@ if [ "$ELASTICSEARCH_USERNAME" != "" ] && [ "$ELASTICSEARCH_PASSWORD" != "" ]
 then
  REPLACE=(
   ${REPLACE[@]}
-  "s|^# elasticsearch_username:.*|elasticsearch_username: $ELASTICSEARCH_USERNAME|;"
-  "s|^# elasticsearch_password:.*|elasticsearch_password: $ELASTICSEARCH_PASSWORD|;"
+  "s|^# kibana_elasticsearch_username:.*|kibana_elasticsearch_username: $ELASTICSEARCH_USERNAME|;"
+  "s|^# kibana_elasticsearch_password:.*|kibana_elasticsearch_password: $ELASTICSEARCH_PASSWORD|;"
  )
 fi
 
