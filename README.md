@@ -12,17 +12,25 @@ Most configuration variables can be set using environment variables.
 
 
 ```
-ENV VAR         		- default value
----------------------------------------
-ELASTICSEARCH   		= http://172.17.42.1:9200
-ELASTICSEARCH_USERNAME 	= 
-ELASTICSEARCH_PASSWORD 	=
-HOST                    = 0.0.0.0
-KIBANA_INDEX    		= .kibana
-DEFAULT_APP_ID  		= discover
-REQUEST_TIMEOUT 		= 300000
-SHARD_TIMEOUT   		= 0
-VERIFY_SSL      		= true
+ENV VAR         				- default value
+-----------------------------------------------
+HOST                    		= 0.0.0.0
+ELASTICSEARCH_URL  				= http://172.17.42.1:9200
+ELASTICSEARCH_PRESERVE_HOST 	= true
+KIBANA_INDEX    				= .kibana
+KIBANA_ELASTICSEARCH_USERNAME	= 
+KIBANA_ELASTICSEARCH_PASSWORD	=
+KIBANA_ELASTICSEARCH_CLIENT_CRT	=
+KIBANA_ELASTICSEARCH_CLIENT_KEY	=
+CA 								=
+DEFAULT_APP_ID  				= discover
+REQUEST_TIMEOUT 				= 300000
+SHARD_TIMEOUT   				= 0
+VERIFY_SSL      				= true
+SSL_KEY_FILE					=
+SSL_CERT_FILE					=
+PID_FILE						=
+LOG_FILE						=
 ```
 
 

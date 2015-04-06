@@ -20,12 +20,54 @@ REPLACE=(
  "s|^verify_ssl:.*$|verify_ssl: $VERIFY_SSL|;"
 )
 
-if [ "$ELASTICSEARCH_USERNAME" != "" ] && [ "$ELASTICSEARCH_PASSWORD" != "" ]
+if [ "$KIBANA_ELASTICSEARCH_USERNAME" != "" ] && [ "$KIBANA_ELASTICSEARCH_PASSWORD" != "" ]
 then
  REPLACE=(
   ${REPLACE[@]}
-  "s|^# kibana_elasticsearch_username:.*|kibana_elasticsearch_username: $ELASTICSEARCH_USERNAME|;"
-  "s|^# kibana_elasticsearch_password:.*|kibana_elasticsearch_password: $ELASTICSEARCH_PASSWORD|;"
+  "s|^# kibana_elasticsearch_username:.*|kibana_elasticsearch_username: $KIBANA_ELASTICSEARCH_USERNAME|;"
+  "s|^# kibana_elasticsearch_password:.*|kibana_elasticsearch_password: $KIBANA_ELASTICSEARCH_PASSWORD|;"
+ )
+fi
+
+if [ "$KIBANA_ELASTICSEARCH_CLIENT_CRT" != "" ] && [ "$KIBANA_ELASTICSEARCH_CLIENT_KEY" != "" ]
+then
+ REPLACE=(
+  ${REPLACE[@]}
+  "s|^# kibana_elasticsearch_client_crt:.*|kibana_elasticsearch_client_crt: $KIBANA_ELASTICSEARCH_CLIENT_CRT|;"
+  "s|^# kibana_elasticsearch_client_key:.*|kibana_elasticsearch_client_key: $KIBANA_ELASTICSEARCH_CLIENT_KEY|;"
+ )
+fi
+
+if [ "$CA" != "" ]
+then
+ REPLACE=(
+  ${REPLACE[@]}
+  "s|^# ca:.*|ca: $CA|;"
+ )
+fi
+
+if [ "$SSL_KEY_FILE" != "" ] && [ "$SSL_CERT_FILE" != "" ]
+then
+ REPLACE=(
+  ${REPLACE[@]}
+  "s|^# ssl_key_file:.*|ssl_key_file: $SSL_KEY_FILE|;"
+  "s|^# ssl_cert_file:.*|ssl_cert_file: $SSL_CERT_FILE|;"
+ )
+fi
+
+if [ "$PID_FILE" != "" ]
+then
+ REPLACE=(
+  ${REPLACE[@]}
+  "s|^# pid_file:.*|pid_file: $PID_FILE|;"
+ )
+fi
+
+if [ "$LOG_FILE" != "" ]
+then
+ REPLACE=(
+  ${REPLACE[@]}
+  "s|^# log_file:.*|log_file: $LOG_FILE|;"
  )
 fi
 
