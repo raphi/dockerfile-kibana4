@@ -10,14 +10,14 @@ export VERIFY_SSL=${VERIFY_SSL:-true}
 export HOST=${HOST:-0.0.0.0}
 
 REPLACE=(
- "s|^host:.*$|host: \"$HOST\"|;"
- "s|^elasticsearch_url:.*$|elasticsearch_url: \"$ELASTICSEARCH_URL\"|;"
- "s|^elasticsearch_preserve_host:.*$|elasticsearch_preserve_host: $ELASTICSEARCH_PRESERVE_HOST|;"
- "s|^kibana_index:.*$|kibana_index: \"$KIBANA_INDEX\"|;"
- "s|^default_app_id:.*$|default_app_id: \"$DEFAULT_APP_ID\"|;"
- "s|^request_timeout:.*$|request_timeout: $REQUEST_TIMEOUT|;"
- "s|^shard_timeout:.*$|shard_timeout: $REQUEST_TIMEOUT|;"
- "s|^verify_ssl:.*$|verify_ssl: $VERIFY_SSL|;"
+ "s|^# host:.*$|host: \"$HOST\"|;"
+ "s|^# elasticsearch_url:.*$|elasticsearch_url: \"$ELASTICSEARCH_URL\"|;"
+ "s|^# elasticsearch_preserve_host:.*$|elasticsearch_preserve_host: $ELASTICSEARCH_PRESERVE_HOST|;"
+ "s|^# kibana_index:.*$|kibana_index: \"$KIBANA_INDEX\"|;"
+ "s|^# default_app_id:.*$|default_app_id: \"$DEFAULT_APP_ID\"|;"
+ "s|^# request_timeout:.*$|request_timeout: $REQUEST_TIMEOUT|;"
+ "s|^# shard_timeout:.*$|shard_timeout: $REQUEST_TIMEOUT|;"
+ "s|^# verify_ssl:.*$|verify_ssl: $VERIFY_SSL|;"
 )
 
 if [ "$KIBANA_ELASTICSEARCH_USERNAME" != "" ] && [ "$KIBANA_ELASTICSEARCH_PASSWORD" != "" ]
